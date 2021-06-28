@@ -4,11 +4,6 @@ dash-html-components==1.1.2
 dash-renderer==1.9.0
 gunicorn==20.0.4
 numpy==1.19.5
-importlib-metadata==4.5.0
-importlib-resources==5.1.4
 pandas==1.1.5
-pandas-datareader==0.9.0
-pandas-gbq==0.13.3
-pandas-profiling==1.4.1
 joblib==1.0.1
-scikit-learn==0.22.2.post1
+scikit-learn==0.22.2
