@@ -199,7 +199,7 @@ def update_output(value):
 def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
   changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
   if 'submit-val' in changed_id: 
-    total =  fat + sat +glu + sugar + prot + salt
+    total =  fat  + glu +  prot + salt
     
     if total > 100:
       return html.Div([ html.Plaintext('Erreur de saisie : '),
