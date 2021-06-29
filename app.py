@@ -34,9 +34,8 @@ server = app.server
 
 app.layout = html.Div([
     html.Div([
-        html.Div([
         html.Div([          
-            html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/nutriscore-logo.png",
+            html.Img(src="https://get.apicbase.com/wp-content/uploads/2020/08/nutriscore-logo.png",
             style={ "height": "50px"}),
             html.H5('Prédiction Nutri-Score'),
             html.Plaintext('By Xavier Barbier - @xavbarbier'),
