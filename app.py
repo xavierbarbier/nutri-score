@@ -174,8 +174,19 @@ def update_output(value):
 
 def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
   changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
-  if 'submit-val' in changed_id:         
+  if 'submit-val' in changed_id: 
+    total =  fat + sat +glu + sugar + prot + salt
+    
+    if total > 100:
+      return html.Div([ html.Plaintext('Erreur de saisie : total des informations nutritionnelles pour 100g > 100')])
+    
+    if sat > fat:
+      return html.Div([ html.Plaintext('Erreur de saisie : graisses saturées > graisses')])
 
+    if sugar > glu:
+      return html.Div([ html.Plaintext('Erreur de saisie : sucres > glucides')])
+
+    else :
       temp["energy_kcal_100g"] = [kcal]
       temp["proteins_100g"] = [prot]
       temp["carbohydrates_100g"] = [glu]
@@ -193,18 +204,48 @@ def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
       pred = labelencoder.inverse_transform(y_pred)
 
       if pred == "a":
-        return html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-score-a.png", width=255)
+        return html.Div([
+                html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-score-a.png", width=255),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Données: Open Food Facts'),
+                dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
+        
+        
 
       if pred == "b":
-        return html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-score-b.png", width=255)
+        return html.Div([
+                html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-score-b.png", width=255),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Données: Open Food Facts'),
+                dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
+        
+        
 
       if pred == "c":
-        return html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/nutri-score-c.jpg", width=255)
+        return html.Div([
+                html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/nutri-score-c.jpg", width=255),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Données: Open Food Facts'),
+                dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
+        
+        
 
       if pred == "d":
-        return html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/nutri-score-d.png", width=255)
+        return html.Div([
+                html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/nutri-score-d.png", width=255),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Données: Open Food Facts'),
+                dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
+
+        
 
       if pred == "e":
-        return html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-Score-e.jpg", width=255)
+        return html.Div([
+                html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-Score-e.jpg", width=255),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Données: Open Food Facts'),
+                dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
+
+
 
 
