@@ -36,12 +36,18 @@ app.layout = html.Div([
     html.Div([
         html.Div([          
             html.Img(src="https://get.apicbase.com/wp-content/uploads/2020/08/nutriscore-logo.png",
-            style={ "height": "50px"}),
+            style={ "height": "200px"}),
             html.H5('Prédiction Nutri-Score'),
             html.Plaintext('By Xavier Barbier - @xavbarbier'),
+
+    
+           
+        ], className="three columns"),
+
+  # col 2
+  html.Div([
             
-            
-        html.Div(id='kcal-output-container'),
+      html.Div(id='kcal-output-container'),
     
     dcc.Slider(
         id='kcal-slider',
@@ -82,7 +88,7 @@ app.layout = html.Div([
         value=50,
     ),
 
-    html.Div(id='fat-output-container'),
+       html.Div(id='fat-output-container'),
 
     dcc.Slider(
         id='fat-slider',
@@ -111,17 +117,22 @@ app.layout = html.Div([
         step=1,
         value=50,
     ),
-    html.Button('Submit', id='submit-val', n_clicks=0)
-
-       
-        ], className="four columns"),
-
-        html.Div([
-                  
     
-            html.Div(id='container-button-basic',
+            
+        ], className="four columns"),
+        
+
+  # col 3
+        html.Div([
+            
+ 
+    html.Button('Submit', id='submit-val', n_clicks=0),
+
+    html.Div(id='container-button-basic',
              children='Enter a value and press submit')
-        ], className="six columns"),
+    
+            
+        ], className="four columns"),
         ], className="row")
 ])
 
@@ -191,7 +202,8 @@ def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
     total =  fat + sat +glu + sugar + prot + salt
     
     if total > 100:
-      return html.Div([ html.Plaintext('Erreur de saisie : total des informations nutritionnelles pour 100g > 100')])
+      return html.Div([ html.Plaintext('Erreur de saisie : '),
+                       html.Plaintext('total des informations nutritionnelles pour 100g > 100')])
     
     if sat > fat:
       return html.Div([ html.Plaintext('Erreur de saisie : graisses saturées > graisses')])
@@ -219,7 +231,8 @@ def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
       if pred == "a":
         return html.Div([
                 html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-score-a.png", width=255),
-                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples.'),
+                html.Plaintext('Précision de 80%'),
                 html.Plaintext('Données: Open Food Facts'),
                 dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
         
@@ -228,7 +241,8 @@ def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
       if pred == "b":
         return html.Div([
                 html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-score-b.png", width=255),
-                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples.'),
+                html.Plaintext('Précision de 80%'),
                 html.Plaintext('Données: Open Food Facts'),
                 dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
         
@@ -237,7 +251,8 @@ def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
       if pred == "c":
         return html.Div([
                 html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/nutri-score-c.jpg", width=255),
-                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples.'),
+                html.Plaintext('Précision de 80%'),
                 html.Plaintext('Données: Open Food Facts'),
                 dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
         
@@ -246,7 +261,8 @@ def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
       if pred == "d":
         return html.Div([
                 html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/nutri-score-d.png", width=255),
-                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples.'),
+                html.Plaintext('Précision de 80%'),
                 html.Plaintext('Données: Open Food Facts'),
                 dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
 
@@ -255,10 +271,9 @@ def update_output(n_clicks, kcal, fat, sat, glu, sugar, prot, salt):
       if pred == "e":
         return html.Div([
                 html.Img(src="https://raw.githubusercontent.com/xavierbarbier/nutri-score/main/img/Nutri-Score-e.jpg", width=255),
-                html.Plaintext('Prédiction faite sur la base de 242 710 exemples avec une précision de 80%'),
+                html.Plaintext('Prédiction faite sur la base de 242 710 exemples.'),
+                html.Plaintext('Précision de 80%'),
                 html.Plaintext('Données: Open Food Facts'),
                 dcc.Link('https://fr.openfoodfacts.org/ ', href='https://fr.openfoodfacts.org/ ' , target='_blank')])
-
-
 
 
