@@ -33,10 +33,14 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 app.layout = html.Div([
-    html.H4('Prédiction Nutri-Score'),
-    html.Plaintext('By Xavier Barbier - @xavbarbier'),
-
-    html.Div(id='kcal-output-container'),
+    html.Div([
+        html.Div([          
+            
+            html.H3('Prédiction Nutri-Score'),
+            html.Plaintext('By Xavier Barbier - @xavbarbier'),
+            
+            
+        html.Div(id='kcal-output-container'),
     
     dcc.Slider(
         id='kcal-slider',
@@ -106,10 +110,18 @@ app.layout = html.Div([
         step=1,
         value=50,
     ),
+    html.Button('Submit', id='submit-val', n_clicks=0)
 
-    html.Button('Submit', id='submit-val', n_clicks=0),
-    html.Div(id='container-button-basic',
+       
+        ], className="four columns"),
+
+        html.Div([
+                  
+    
+            html.Div(id='container-button-basic',
              children='Enter a value and press submit')
+        ], className="six columns"),
+        ], className="row")
 ])
 
 @app.callback(
