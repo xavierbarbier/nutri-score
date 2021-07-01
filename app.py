@@ -36,7 +36,7 @@ app.layout = html.Div([
     html.Div([
         html.Div([          
             html.Img(src="https://get.apicbase.com/wp-content/uploads/2020/08/nutriscore-logo.png",
-            style={ "height": "200px"}),
+            style={ 'height':'30%', 'width':'30%'}),
             html.H5('Prédiction Nutri-Score'),
             html.Plaintext('By Xavier Barbier - @xavbarbier'),
 
