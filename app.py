@@ -49,73 +49,65 @@ app.layout = html.Div([
             
       html.Div(id='kcal-output-container'),
     
-    dcc.Slider(
-        id='kcal-slider',
-        min=0,
-        max=900,
-        step=1,
-        value=450,
+    dcc.Dropdown(
+       np.arange(0,900,1),
+       450,
+       id='kcal-slider',
+          
     ),
 
 
     html.Div(id='prot-output-container'),
     
-    dcc.Slider(
-        id='prot-slider',
-        min=0,
-        max=100,
-        step=1,
-        value=50,
+    dcc.Dropdown(
+       np.arange(0,100,1),
+       50,
+       id='prot-slider'
+        
     ),
     
     html.Div(id='glu-output-container'),
 
-    dcc.Slider(
-        id='glu-slider',
-        min=0,
-        max=100,
-        step=1,
-        value=50,
+    dcc.Dropdown(
+       np.arange(0,100,1),
+       50,
+       id='glu-slider'
+       
     ),
     
     html.Div(id='sugar-output-container'),
 
-    dcc.Slider(
-        id='sugar-slider',
-        min=0,
-        max=100,
-        step=1,
-        value=50,
+    dcc.Dropdown(
+       np.arange(0,100,1),
+       50,
+       id='sugar-slider'
+
     ),
 
        html.Div(id='fat-output-container'),
 
-    dcc.Slider(
-        id='fat-slider',
-        min=0,
-        max=100,
-        step=1,
-        value=50,
+    dcc.Dropdown(
+       np.arange(0,100,1),
+       50,
+       id='fat-slider'
+        
     ),
 
     html.Div(id='sat-output-container'),
 
-    dcc.Slider(
-        id='sat-slider',
-        min=0,
-        max=100,
-        step=1,
-        value=50,
+    dcc.Dropdown(
+       np.arange(0,100,1),
+       50,
+       id='sat-slider'
+        
     ),
 
     html.Div(id='salt-output-container'),
 
-    dcc.Slider(
-        id='salt-slider',
-        min=0,
-        max=100,
-        step=1,
-        value=50,
+    dcc.Dropdown(
+       np.arange(0,100,1),
+       50,
+       id='salt-slider'
     ),
     
             
